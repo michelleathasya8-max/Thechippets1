@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Chippets ♡</title>
+
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+
+/* ==========================================
+   GENERAL SETTINGS
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: #fff8fb;
+    color: #755568;
+    overflow-x: hidden;
+}
+
+:root {
+    --pink: #df8eae;
+    --pink-light: #fce5ee;
+    --purple: #ad91d0;
+    --purple-light: #f0e7fa;
+    --green: #96b88d;
+    --green-light: #eaf3e6;
+    --cream: #fff8fb;
+    --text: #755568;
+    --white: #ffffff;
+}
+
+/* Background decorations */
+
+body::before {
+    content: "♡";
+    position: fixed;
+    top: 5%;
+    left: 3%;
+    font-size: 120px;
+    color: #f8dce8;
+    opacity: 0.25;
+    z-index: -1;
+    pointer-events: none;
+}
+
+body::after {
+    content: "✧";
+    position: fixed;
+    bottom: 5%;
+    right: 4%;
+    font-size: 130px;
+    color: #e8d9f5;
+    opacity: 0.4;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ==========================================
+   HEADER / NAVIGATION
+========================================== */
+
+.header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(255, 248, 251, 0.92);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid #f4e2ec;
+}
+
+.navbar {
+    max-width: 1400px;
+    margin: auto;
+
+    padding: 18px 6%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Pacifico', cursive;
+    font-size: 25px;
+    color: #d4779e;
+    text-decoration: none;
+}
+
+.logo span {
+    font-size: 18px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #80647a;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #d4779e;
+}
+
+.header-decoration {
+    color: #d9a6c4;
+    font-size: 17px;
+}
+
+/* ==========================================
+   HOMEPAGE / HERO
+========================================== */
+
+.hero {
+    min-height: 92vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 60px 20px;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 245, 250, 0.35),
+            rgba(255, 245, 250, 0.55)
+        ),
+        url("images/background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+    animation: fadeUp 1s ease;
+}
+
+.hero-tag {
+    display: inline-block;
+
+    background: rgba(255, 255, 255, 0.85);
+    color: #c8759a;
+
+    padding: 12px 25px;
+    border-radius: 50px;
+
+    font-size: 11px;
+    letter-spacing: 3px;
+
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(50px, 9vw, 110px);
+    line-height: 1.05;
+
+    color: #a95f83;
+
+    text-shadow:
+        0 3px 20px rgba(255,255,255,0.5);
+}
+
+.hero h1 span {
+    font-style: italic;
+    color: #d77fa4;
+}
+
+.hero-description {
+    max-width: 550px;
+
+    margin: 25px auto;
+
+    color: #805d73;
+    font-size: 15px;
+    line-height: 2;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+
+    border-radius: 50px;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.button-primary {
+    background: #d982a6;
+    color: white;
+}
+
+.button-primary:hover {
+    background: #c36c92;
+    transform: translateY(-4px);
+}
+
+.button-secondary {
+    background: white;
+    color: #b46e95;
+    border: 1px solid #f1d4e2;
+}
+
+.button-secondary:hover {
+    background: #fff0f6;
+    transform: translateY(-4px);
+}
+
+/* Floating decorations */
+
+.hero-star {
+    position: absolute;
+    font-size: 35px;
+    color: white;
+    animation: float 4s ease-in-out infinite;
+}
+
+.star-one {
+    top: 20%;
+    left: 12%;
+}
+
+.star-two {
+    bottom: 20%;
+    right: 12%;
+    animation-delay: 1s;
+}
+
+.star-three {
+    top: 30%;
+    right: 20%;
+    animation-delay: 2s;
+}
+
+/* ==========================================
+   ABOUT US
+========================================== */
+
+.about {
+    padding: 100px 20px 70px;
+    text-align: center;
+}
+
+.section-label {
+    color: #d982a6;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 50px);
+    color: #80536e;
+    margin-bottom: 25px;
+}
+
+.about-text {
+    max-width: 700px;
+    margin: auto;
+
+    font-size: 14px;
+    line-height: 2;
+
+    color: #91788a;
+}
+
+/* ==========================================
+   PROFILE SECTION
+========================================== */
+
+.profiles {
+    padding: 40px 7% 110px;
+}
+
+.profile-container {
+    max-width: 1300px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+}
+
+.profile-card {
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 35px rgba(140, 100, 120, 0.08);
+
+    transition: 0.4s;
+}
+
+.profile-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 20px 45px rgba(140, 100, 120, 0.15);
+}
+
+/* Profile photos */
+
+.profile-image {
+    height: 420px;
+    overflow: hidden;
+    position: relative;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: 0.5s;
+}
+
+.profile-card:hover .profile-image img {
+    transform: scale(1.05);
+}
+
+.profile-image::after {
+    content: "";
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 30%;
+
+    background: linear-gradient(
+        transparent,
+        rgba(0,0,0,0.15)
+    );
+}
+
+/* Profile text */
+
+.profile-content {
+    padding: 30px;
+    text-align: center;
+}
+
+.profile-number {
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.profile-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.profile-nickname {
+    font-size: 13px;
+    margin-bottom: 20px;
+    opacity: 0.7;
+}
+
+.profile-bio {
+    font-size: 13px;
+    line-height: 1.9;
+    color: #927c8b;
+    margin-bottom: 30px;
+}
+
+/* Profile details */
+
+.details {
+    text-align: left;
+    margin: 25px 0;
+}
+
+.detail {
+    display: flex;
+    gap: 13px;
+    margin-bottom: 18px;
+}
+
+.detail-icon {
+    font-size: 20px;
+    width: 25px;
+}
+
+.detail-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    opacity: 0.7;
+}
+
+.detail-text {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #806d7a;
+}
+
+/* Profile tags */
+
+.profile-tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.profile-tags span {
+    padding: 9px 14px;
+    border-radius: 30px;
+    font-size: 10px;
+}
+
+/* AUREL - GREEN */
+
+.aurel {
+    color: #78966f;
+}
+
+.aurel .profile-number {
+    color: #96b88d;
+}
+
+.aurel .profile-tags span {
+    background: #eaf3e6;
+    color: #78966f;
+}
+
+/* BELLA - PINK */
+
+.bella {
+    color: #d4779e;
+}
+
+.bella .profile-number {
+    color: #df8eae;
+}
+
+.bella .profile-tags span {
+    background: #fce5ee;
+    color: #d4779e;
+}
+
+/* MICHELLE - PURPLE */
+
+.michelle {
+    color: #9273b4;
+}
+
+.michelle .profile-number {
+    color: #ad91d0;
+}
+
+.michelle .profile-tags span {
+    background: #f0e7fa;
+    color: #9273b4;
+}
+
+/* ==========================================
+   PHOTO GALLERY
+========================================== */
+
+.gallery {
+    padding: 90px 7% 110px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff1f7,
+            #f7effc,
+            #f0f7ed
+        );
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.gallery-description {
+    color: #91788a;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.gallery-grid {
+    max-width: 1300px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery-item {
+    height: 350px;
+
+    border-radius: 20px;
+    overflow: hidden;
+
+    position: relative;
+    background: white;
+
+    box-shadow:
+        0 10px 25px rgba(140, 100, 120, 0.08);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: 0.5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-caption {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    padding: 25px 20px;
+
+    color: white;
+
+    background: linear-gradient(
+        transparent,
+        rgba(0,0,0,0.55)
+    );
+
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+}
+
+/* ==========================================
+   FRIENDSHIP QUOTE
+========================================== */
+
+.quote-section {
+    padding: 100px 20px;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fce5ee,
+            #f0e7fa,
+            #eaf3e6
+        );
+}
+
+.quote {
+    max-width: 800px;
+    margin: auto;
+
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+
+    font-size: clamp(25px, 4vw, 45px);
+
+    color: #997398;
+    line-height: 1.6;
+}
+
+.quote-author {
+    margin-top: 30px;
+
+    font-size: 11px;
+    letter-spacing: 4px;
+
+    color: #b47da6;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer {
+    padding: 50px 20px;
+    text-align: center;
+    background: #fff8fb;
+}
+
+.footer-logo {
+    font-family: 'Pacifico', cursive;
+    font-size: 25px;
+    color: #d4779e;
+    margin-bottom: 15px;
+}
+
+footer p {
+    font-size: 12px;
+    color: #b08a9e;
+    line-height: 2;
+}
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+@keyframes float {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* ==========================================
+   MOBILE RESPONSIVENESS
+========================================== */
+
+@media (max-width: 950px) {
+
+    .profile-container {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+    .profile-image {
+        height: 500px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 18px 5%;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .header-decoration {
+        display: none;
+    }
+
+    .hero {
+        min-height: 80vh;
+    }
+
+    .hero-tag {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+    .profile-image {
+        height: 400px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item {
+        height: 400px;
+    }
+
+    .about {
+        padding: 75px 25px 50px;
+    }
+
+    .profiles {
+        padding: 30px 6% 80px;
+    }
+
+    .gallery {
+        padding: 75px 6%;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <nav class="navbar">
+
+        <a href="#home" class="logo">
+            The Chippets <span>♡</span>
+        </a>
+
+        <div class="header-decoration">
+            ✧ ♡ ✧
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#profiles">Members</a>
+            </li>
+
+            <li>
+                <a href="#gallery">Gallery</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<!-- HOMEPAGE -->
+
+<section class="hero" id="home">
+
+    <div class="hero-star star-one">✧</div>
+    <div class="hero-star star-two">♡</div>
+    <div class="hero-star star-three">✦</div>
+
+    <div class="hero-content">
+
+        <div class="hero-tag">
+            ✦ THREE GIRLS · ONE LITTLE WORLD ✦
+        </div>
+
+        <h1>
+            Welcome to<br>
+            <span>The Chippets</span>
+        </h1>
+
+        <p class="hero-description">
+            Three different personalities, three different
+            colors, and one unforgettable friendship.
+            A little corner of the internet made
+            just for us.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#profiles" class="button button-primary">
+                Meet the girls ♡
+            </a>
+
+            <a href="#gallery" class="button button-secondary">
+                Our memories ✧
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT US -->
+
+<section class="about" id="about">
+
+    <div class="section-label">
+        OUR LITTLE STORY
+    </div>
+
+    <h2 class="section-title">
+        A trio like no other
+    </h2>
+
+    <p class="about-text">
+
+        Inspired by the Chipettes, we each have
+        our own color, personality, and little quirks.
+
+        Aurel brings the green, Bella brings the pink,
+        and Michelle brings the purple.
+
+        From music and movies to dancing and drawing,
+        we may have different interests,
+        but together we make our own little magic.
+
+    </p>
+
+</section>
+
+
+<!-- PROFILE CARDS -->
+
+<section class="profiles" id="profiles">
+
+    <div class="profile-container">
+
+
+        <!-- AUREL -->
+
+        <div class="profile-card aurel">
+
+            <div class="profile-image">
+
+                <img
+                    src="Aurel.png"
+                    alt="Aurel"
+                >
+
+            </div>
+
+            <div class="profile-content">
+
+                <div class="profile-number">
+                    ✦ 01 · THE GREEN ONE ✦
+                </div>
+
+                <h3 class="profile-name">
+                    Aurelia
+                </h3>
+
+                <div class="profile-nickname">
+                    Aurel ♡
+                </div>
+
+                <p class="profile-bio">
+                    A music lover with a passion for singing.
+                    Always finding happiness in a good song
+                    and her favorite bowl of mie ayam.
+                </p>
+
+                <div class="details">
+
+                    <div class="detail">
+
+                        <div class="detail-icon">🎧</div>
+
+                        <div>
+
+                            <div class="detail-label">
+                                HOBBIES
+                            </div>
+
+                            <div class="detail-text">
+                                Listening to music & singing
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="detail">
+
+                        <div class="detail-icon">🍜</div>
+
+                        <div>
+
+                            <div class="detail-label">
+                                FAVORITE FOOD
+                            </div>
+
+                            <div class="detail-text">
+                                Mie ayam
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="detail">
+
+                        <div class="detail-icon">♫</div>
+
+                        <div>
+
+                            <div class="detail-label">
+                                FAVORITE SONG
+                            </div>
+
+                            <div class="detail-text">
+                                Hanya Untukmu — Ten to Five
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="profile-tags">
+
+                    <span>♡ Music</span>
+                    <span>♡ Singing</span>
+                    <span>♡ Green</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BELLA -->
+
+        <div class="profile-card bella">
+
+            <div class="profile-image">
+
+                <img
+                    src="Bella.png"
+                    alt="Bella"
+                >
+
+            </div>
+
+            <div class="profile-content">
+
+                <div class="profile-number">
+                    ✦ 02 · THE PINK ONE ✦
+                </div>
+
+                <h3 class="profile-name">
+                    Isabel
+                </h3>
+
+                <div class="profile-nickname">
+                    Bella ♡
+                </div>
+
+                <p class="profile-bio">
+                    A movie enthusiast who loves getting
+                    lost in different stories and worlds.
+                    Her perfect day includes a good movie
+                    and ayam geprek.
+                </p>
+
+                <div class="details">
+
+                    <div class="detail">
+
+                        <div class="detail-icon">🎬</div>
+
+                        <div>
+
+                            <div class="detail-label">
+                                HOBBIES
+                            </div>
+
+                            <div class="detail-text">
+                                Watching movies
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="detail">
+
+                        <div class="detail-icon">🍗</div>
+
+                        <div>
+
+                            <div class="detail-label">
+                                FAVORITE FOOD
+                            </div>
+
+                            <div class="detail-text">
+                                Ayam geprek
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="detail">
+
+                        <div class="detail-icon">♫</div>
+
+                        <div>
+
+                            <div class="detail-label">
+                                FAVORITE SONG
+                            </div>
+
+                            <div class="detail-text">
+                                Purple Rain - Prince
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="profile-tags">
+
+                    <span>♡ Movies</span>
+                    <span>♡ Cinema</span>
+                    <span>♡ Pink</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MICHELLE -->
+
+        <div class="profile-card michelle">
+
+            <div class="profile-image">
+
+                <img
+                    src="Michelle.png"
+                    alt="Michelle"
+                >
+
+            </div>
+
+            <div class="profile-content">
+
+                <div class="profile-number">
+                    ✦ 03 · THE PURPLE ONE ✦
+                </div>
+
+                <h3 class="profile-name">
+                    Michelle
+                </h3>
+
+                <div class="profile-nickname">
+                    Michelle ♡
+                </div>
+
+                <p class="profile-bio">
+                    A creative soul who loves music,
+                    dancing, and drawing.
+                    Always finding inspiration
+                    in the little things.
+                </p>
+
+                <div class="details">
+
+                    <div class="detail">
+
+                        <div class="detail-icon">🎨</div>
+
+                        <div>
+
+                            <div class="detail-label">
+                                HOBBIES
+                            </div>
+
+                            <div class="detail-text">
+                                Music, dancing & drawing
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="detail">
+
+                        <div class="detail-icon">🍜</div>
+
+                        <div>
+
+                            <div class="detail-label">
+                                FAVORITE FOOD
+                            </div>
+
+                            <div class="detail-text">
+                                Pho & crispy pork belly
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="detail">
+
+                        <div class="detail-icon">♫</div>
+
+                        <div>
+
+                            <div class="detail-label">
+                                FAVORITE SONG
+                            </div>
+
+                            <div class="detail-text">
+                                I Like Me Better — Lauv
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="profile-tags">
+
+                    <span>♡ Music</span>
+                    <span>♡ Art</span>
+                    <span>♡ Dance</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- PHOTO GALLERY -->
+
+<section class="gallery" id="gallery">
+
+    <div class="gallery-header">
+
+        <div class="section-label">
+            OUR MEMORIES
+        </div>
+
+        <h2 class="section-title">
+            Little moments, big memories
+        </h2>
+
+        <p class="gallery-description">
+            A collection of our favorite moments together ♡
+        </p>
+
+    </div>
+
+
+    <div class="gallery-grid">
+
+
+        <div class="gallery-item">
+
+            <img
+                src="galeri1.png"
+                alt="Our memory one"
+            >
+
+            <div class="gallery-caption">
+                The beginning ♡
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+                src="galeri2.png"
+                alt="Our memory two"
+            >
+
+            <div class="gallery-caption">
+                Just us ✧
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+                src="galeri3.png"
+                alt="Our memory three"
+            >
+
+            <div class="gallery-caption">
+                A little chaos
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+                src="galeri4.png"
+                alt="Our memory four"
+            >
+
+            <div class="gallery-caption">
+                Forever memories
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+                src="galeri5.png"
+                alt="Our memory five"
+            >
+
+            <div class="gallery-caption">
+                Our happy place ♡
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+                src="galeri6.png"
+                alt="Our memory six"
+            >
+
+            <div class="gallery-caption">
+                Three of a kind
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+<li>
+    <a href="#music">Music</a>
+</li>
+
+<!-- ==========================================
+     THE CHIPPETS MUSIC ROOM
+========================================== -->
+
+<section class="music-section" id="music">
+
+    <div class="music-header">
+        <div class="section-label">OUR LITTLE SOUNDTRACK</div>
+
+        <h2 class="section-title">
+            The Chippets Radio ♡
+        </h2>
+
+        <p class="music-description">
+            Three girls, three favorite songs,
+            and one playlist full of memories.
+        </p>
+    </div>
+
+    <div class="music-container">
+
+        <!-- YOUTUBE PLAYER -->
+
+        <div class="music-player-card">
+
+            <div class="player-label">
+                <span>♫</span> NOW PLAYING
+            </div>
+
+            <div class="youtube-container">
+                <div id="youtube-player"></div>
+            </div>
+
+            <div class="current-song-info">
+                <div>
+                    <h3 id="current-song-title">
+                        Welcome to The Chippets Radio
+                    </h3>
+
+                    <p id="current-song-artist">
+                        Choose a song to begin ♡
+                    </p>
+                </div>
+
+                <span class="music-heart">♡</span>
+            </div>
+
+        </div>
+
+
+        <!-- PLAYLIST -->
+
+        <div class="playlist-card">
+
+            <div class="playlist-heading">
+                <div>
+                    <span class="playlist-label">
+                        THE COLLECTION
+                    </span>
+
+                    <h3>Our Playlist</h3>
+                </div>
+
+                <span class="playlist-count">03 SONGS ♡</span>
+            </div>
+
+
+            <!-- AUREL -->
+
+            <button class="song-item active"
+                data-song="0">
+
+                <div class="song-cover cover-green">
+                    <span>♫</span>
+                </div>
+
+                <div class="song-details">
+                    <h4>Hanya Untukmu</h4>
+                    <p>Ten to Five · Aurel</p>
+                </div>
+
+                <span class="song-color green-dot"></span>
+
+            </button>
+
+
+            <!-- BELLA -->
+
+            <button class="song-item"
+                data-song="1">
+
+                <div class="song-cover cover-pink">
+                    <span>♡</span>
+                </div>
+
+                <div class="song-details">
+                    <h4>Purple Rain</h4>
+                    <p>Bella's Favorite</p>
+                </div>
+
+                <span class="song-color pink-dot"></span>
+
+            </button>
+
+
+            <!-- MICHELLE -->
+
+            <button class="song-item"
+                data-song="2">
+
+                <div class="song-cover cover-purple">
+                    <span>✧</span>
+                </div>
+
+                <div class="song-details">
+                    <h4>I Like Me Better</h4>
+                    <p>Lauv · Michelle</p>
+                </div>
+
+                <span class="song-color purple-dot"></span>
+
+            </button>
+
+
+            <div class="playlist-footer">
+                Made with music and friendship ♡
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     FLOATING MINI MUSIC PLAYER
+========================================== -->
+
+<div class="floating-music-player" id="floating-player">
+
+    <div class="mini-song-cover" id="mini-cover">
+        ♫
+    </div>
+
+    <div class="mini-song-info">
+
+        <h4 id="mini-song-title">
+            The Chippets Radio
+        </h4>
+
+        <p id="mini-song-artist">
+            Choose your song ♡
+        </p>
+
+    </div>
+
+    <div class="mini-controls">
+
+        <button id="previous-song"
+            class="mini-button"
+            aria-label="Previous song">
+            ⏮
+        </button>
+
+        <button id="play-pause"
+            class="mini-button play-button"
+            aria-label="Play">
+            ▶
+        </button>
+
+        <button id="next-song"
+            class="mini-button"
+            aria-label="Next song">
+            ⏭
+        </button>
+
+    </div>
+
+    <button id="close-player"
+        class="close-player"
+        aria-label="Hide mini player">
+        ×
+    </button>
+
+</div>
+
+
+<!-- YOUTUBE API -->
+
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<!-- YOUR MUSIC JAVASCRIPT -->
+
+<script src="script.js"></script>
+
+
+<!-- FRIENDSHIP QUOTE -->
+
+<section class="quote-section">
+
+    <p class="quote">
+
+        "Three different colors,
+        three different souls,
+        but together we make
+        one beautiful picture."
+
+    </p>
+
+    <div class="quote-author">
+        THE CHIPPETTES ♡
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-logo">
+        The Chippets ♡
+    </div>
+
+    <p>
+        Made with love, friendship, and a little bit of sparkle.
+    </p>
+
+    <p>
+        Aurel ♡ Bella ♡ Michelle
+    </p>
+
+    <p style="margin-top: 15px;">
+        © 2026 The Chippets
+    </p>
+
+</footer>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
